@@ -1,0 +1,278 @@
+# Begin Text
+-----------------------------------------------------------------------------------------------------------------------------------------
+VERSION INFO
+-----------------------------------------------------------------------------------------------------------------------------------------
+Rev                        Author                      Created/Modified Date                            Remarks                         |
+-----------------------------------------------------------------------------------------------------------------------------------------
+                      
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Requirement Description:
+
+
+
+SDD Baseline Version: 
+
+Function: Action_BIT_TFD_Standby()
+
+Test File: 
+
+----------------------------------------------------------------------------------------
+Input Range Table :
+----------------------------------------------------------------------------------------
+|Variable              |Type    |Range   |Min |Mid -ve|Zero|Mid +ve|Max |OB Low|OB High|
+----------------------------------------------------------------------------------------
+|None                  |        |        |    |       |    |       |    |      |       |
+----------------------------------------------------------------------------------------
+
+
+Singularity Table :
+----------------------------------------------------------------------------------------
+|Expressions                                                            |N-1 |N   |N+1 |
+----------------------------------------------------------------------------------------
+|None                                                                   |    |    |    |
+----------------------------------------------------------------------------------------
+
+
+Test Case Type Table:
+---------------------------------
+| Test Case No.| Test Case Type |
+---------------------------------
+| M1           | Normal         |    
+---------------------------------
+| None         | Robustness     |
+---------------------------------
+
+Where
+None
+
+Note: 
+
+
+-------------------------------------------------------------------------------
+
+LDRA Syntax:- 
+
+ All Keywords used in LDRA are case sensitive.
+
+Meaning of the following Keywords used in TCF file
+
+%            : Return of the function( If return of the function under
+               test is other than void).
+
+Usage = Z    : LDRA recognizes the associated variable as a function
+               parameter applied through local.
+
+Usage = G    : LDRA recognizes the associated variable as a global input
+               variable.
+ 
+Usage = H    : LDRA recognizes the associated variable as a global output
+               variable.
+
+Usage = O    : LDRA recognizes the associated variable as a Function return or
+               Output parameter.
+
+Usage = P    : LDRA recognizes the associated variable as a Parameter
+               pointer initialization.
+
+Usage = Q    : LDRA recognizes the associated variable as a global
+               pointer initialization.
+
+-------------------------------------------------------------------------------
+ 
+    # End Text
+
+
+    # Begin Attributes
+
+      Sequence Name =
+      New Seq TCF = 
+      Language Code = 2
+      Version = 9.2.0
+
+    # End Attributes
+
+    # Begin Test Case
+
+      File = 
+      Procedure = 
+      Procedure Number = 2
+      Creation Date =
+      Description = TEST M1
+
+      # Begin Text
+
+ Test Case type = Normal
+
+ Requirements: IHDC-MEP-LDR#5453
+
+ Objectives:
+
+   Control Flow:    
+
+ NA
+
+
+      # End Text
+
+        # Begin Variable
+
+          Name = thisLoop[0].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = G
+          Value = TRUE
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = thisLoop[1].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = G
+          Value = TRUE
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = thisLoop[2].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = G
+          Value = TRUE
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = thisLoop[3].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = G
+          Value = TRUE
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = thisLoop[0].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = H
+          Value = FALSE
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = thisLoop[1].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = H
+          Value = FALSE
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = thisLoop[2].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = H
+          Value = FALSE
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = thisLoop[3].tfdBIT.BIT_Active
+          Decl_type = Bool
+          Usage = H
+          Value = FALSE
+
+        # End Variable
+
+      # Begin TC Stub
+
+        Procedure = leaveCriticalSection
+  Overloading = Prototype
+
+  # Begin Overloading
+  # End Overloading
+
+      # Begin TC Stub TC Hit Count
+
+        Setting = 3
+        Specified = 2
+      # End TC Stub TC Hit Count
+
+      # End TC Stub
+
+      # Begin TC Stub
+
+        Procedure = enterCriticalSection
+  Overloading = Prototype
+
+  # Begin Overloading
+  # End Overloading
+
+      # Begin TC Stub TC Hit Count
+
+        Setting = 3
+        Specified = 2
+      # End TC Stub TC Hit Count
+
+      # End TC Stub
+
+      # Begin TC Stub
+
+        Procedure = IO_Exp_Reg_Write
+  Overloading = Prototype
+
+  # Begin Overloading
+SPI_Selector_t
+Device_t
+UInt8
+UInt16
+  # End Overloading
+
+        # Begin TC Stub Input Params
+
+          Name = write_value
+          Type = UInt16
+          Value = 0xF0FA,0x5014
+
+        # End TC Stub Input Params
+
+      # Begin TC Stub TC Hit Count
+
+        Setting = 3
+        Specified = 2
+      # End TC Stub TC Hit Count
+
+      # End TC Stub
+
+      # Begin TC Stub
+
+        Procedure = IO_Exp_Reg_Read
+  Overloading = Prototype
+
+  # Begin Overloading
+SPI_Selector_t
+Device_t
+UInt8
+  # End Overloading
+
+        # Begin TC Stub Return Value
+
+          Name = %
+          Type = UInt16
+          Value = DISC_MAX,LED1_RED_IOX_MASK
+
+        # End TC Stub Return Value
+
+      # Begin TC Stub TC Hit Count
+
+        Setting = 3
+        Specified = 2
+      # End TC Stub TC Hit Count
+
+      # End TC Stub
+
+    # End Test Case
+
