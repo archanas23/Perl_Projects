@@ -1,7 +1,7 @@
 #===============================================================================
 # This PERL script is designed to extract the following information from the 
 # LDRA TCF file (Low Level Test file)(*.tcf)(Module testing file) and Result 
-# file (.htm)used in the Automobile and Aerospace Domain.
+# file (.htm)used in the software testing domain.
 #
 # From TCF (*.tcf) file:
 # ----------------------
